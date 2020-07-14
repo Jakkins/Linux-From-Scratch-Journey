@@ -4,3 +4,4 @@
 
 - reach a deeper understanding of C programming language
 - reach a deeper understanding of kernel architecture
+- reach a deeper knowledge of code security
