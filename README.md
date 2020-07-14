@@ -1,4 +1,4 @@
-<h1 align="center">Linux-From-Scratch-Journey</h1>
+<h1 align="center">Linux From Scratch Journey</h1>
 
 #### Goals
 
