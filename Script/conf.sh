@@ -6,4 +6,5 @@ time { ../sources/binutils-2.34/configure		\
 				--target=$LFS_TGT          		\
 				--disable-nls              		\
 				--disable-werror				\
- && make && make install; }
+ && make -j4 && case $(uname -m) in x86_64) mkdir -v /lfs/tools/lib && ln -sv lib /lfs/tools/lib64 ;; esac && make install; }
+
