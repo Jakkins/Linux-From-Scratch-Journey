@@ -1,0 +1,17 @@
+
+	lsmod | grep snd
+		lsmod is a trivial program which nicely formats the contents of the /proc/modules, showing what kernel modules are currently loaded
+	
+	To unload modules 
+		> rmmod 
+		or 
+		> modrobe -r
+	To load
+		> modprobe
+	
+	sudo alsactl nrestore
+	
+	alsactl -i
+		main configuation file for init phase
+        (default /usr/share/alsa/init/00main)
+

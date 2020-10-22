@@ -1,0 +1,5 @@
+
+	By default ALSA has all channels muted. Those have to be unmuted manually. 
+	
+	https://www.kernel.org/doc/html/latest/sound/hd-audio/notes.html#dma-position-problem
+		Emmmh no.

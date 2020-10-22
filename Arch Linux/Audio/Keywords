@@ -1,0 +1,10 @@
+
+	ALSA
+	alsa-utils
+	apulse (pulse audio)
+	
+	The alsa-firmware 
+		package contains firmware that may be required for certain sound cards 
+		(e.g. Creative SB0400 Audigy2).
+	
+	By default ALSA has all channels muted. Those have to be unmuted manually. 

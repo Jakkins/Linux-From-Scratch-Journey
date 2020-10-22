@@ -1,0 +1,84 @@
+ALSA is a set of built-in Linux kernel modules. 
+Therefore, manual installation is not necessary. 
+
+=====================
+		Start
+=====================
+
+LO DEVI SETTARE STO CAZZO DI MICROFONO.
+
+-> alsactl init
+	Found hardware: 
+		"HDA-Intel" 
+		"Realtek ALC255" 
+		"HDA:10ec0255,10431c7d,00100002 HDA:80862809,80860101,00100000" "0x1043" "0x1c7d"
+	Hardware is initialized using a generic method
+-> alsactl store
+	alsactl: state_lock:125: file /var/lib/alsa/asound.state lock error: File exists
+
+===========================
+	Dove sono le conf?
+===========================
+@hooks [
+	{
+		func load
+		files [
+			"/etc/alsa/conf.d"
+			"/etc/asound.conf"
+			"~/.asoundrc"
+		]
+		errors false
+	}
+]
+
+===========================
+		Cartelle
+===========================
+Importanti	
+	/etc/alsa/conf.d
+Meno importanti
+	/usr/share/alsa/
+	/var/lib/alsa/asound.state
+	/var/lib/alsa/alsa.conf
+	/etc/modprobe.d/alsa.conf ???
+============================================================
+https://askubuntu.com/questions/8269/microphone-alsa-noise
+============================================================
+In /etc/modprobe.d/alsa-base.conf -> options snd-hda-intel model=<your_model_or-audo> position_fix=2
+
+The file is now called alsa.conf and is found in /usr/share/alsa
+
+==================================
+		Master Sources
+==================================
+https://www.linuxquestions.org/questions/slackware-14/hd-audio-alsa-settings-not-persistent-across-reboots-4175444284-print/
+
+================================
+		Prova i device
+================================
+// registra 5 secondi di audio
+	> arecord -d 5 test-mic.wav
+// list of device
+	> aplay -l
+
+
+========================
+BHO
+========================
+.conf in /etc/modprobe.d/. The options line was
+Code:
+options snd_hda_intel index=0 model=auto position_fix=3
+
+Cosi'...
+
+$ cat /etc/modprobe.d/alsa.conf
+options snd_hda_intel index=0 model=auto
+
+
+
+
+
+
+
+
+
