@@ -4,5 +4,10 @@
 
 ### Date, Time, System Clock
 ```
-timedatectl
+$ timedatectl
+    > status
+    > list-timezones
+    > set-timezone <name>
+    > set-ntp true
+$ sudo hwclock --show
 ```
