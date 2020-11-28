@@ -17,3 +17,7 @@ $ sudo hwclock --show
 pacman -Syu
 pacman -Ql packagename
 ```
+
+## Sudo
+
+![sudoers](sudoers.jpg)
