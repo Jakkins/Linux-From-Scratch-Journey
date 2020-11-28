@@ -1,0 +1,9 @@
+Description='Daje'
+Interface=wlp3s0
+Connection=wireless
+
+Security=wpa
+ESSID=Home\&Life\ SuperWiFi-B089
+
+IP=dhcp
+Key=y2gfuicwegf823ghfidhuTHISISTHEKEYblablablablablabla
