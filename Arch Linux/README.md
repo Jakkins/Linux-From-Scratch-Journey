@@ -15,7 +15,7 @@ $ sudo hwclock --show
 ## Useful
 
 - [Where PATH is setted?](https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu)
-- fn+ctrl+alt+f1
+- fn+f1
 
 ## Pacman
 
