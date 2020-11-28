@@ -11,3 +11,9 @@ $ timedatectl
     > set-ntp true
 $ sudo hwclock --show
 ```
+## Pacman
+
+```bash
+pacman -Syu
+pacman -Ql packagename
+```
