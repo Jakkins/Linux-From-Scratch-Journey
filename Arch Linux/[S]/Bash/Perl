@@ -1,0 +1,12 @@
+
+perl -e shell -MCPAN
+	install XML::Parser
+		Running install for module 'XML::Parser'
+		Fetching with LWP:
+		http://www.cpan.org/authors/id/T/TO/TODDR/XML-Parser-2.46.tar.gz
+cat /home/sam/.cpan/CPAN/MyConfig.pm
+
+
+xfe
+	intltool -> XML::Parser 
+		-> sudo make install (http://www.fox-toolkit.org/)

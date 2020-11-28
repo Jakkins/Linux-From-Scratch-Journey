@@ -1,0 +1,10 @@
+
+
+	sudo find path | grep 'hello world'
+	sudo find -not -path '*/drawio*' | grep npm
+	
+	type perl
+	whereis perl
+	type intltoolize
+	pacman -Qo /bin/intltoolize
+	pacman -Qo /bin/perl

@@ -1,0 +1,16 @@
+
+	> 7z x name									//rispetta le cartelle
+
+	> unzip file.zip -d /destination
+
+=============================
+tar
+=============================
+-x, extract
+-z, gzip
+-j, bzip2
+-C, destination folder
+-J, xz
+	
+	> tar -xzf
+	> tar -xf

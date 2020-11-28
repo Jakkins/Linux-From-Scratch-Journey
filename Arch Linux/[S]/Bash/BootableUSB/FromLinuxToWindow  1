@@ -1,0 +1,19 @@
+
+https://linuxhint.com/create_windows_10_installer_usb_linux/
+
+	> fdisk -l
+	> dfisk /dev/sdb
+	> create new partition W95 FAT32
+	> toggle bootable flag
+	> write
+	> umount
+	> mkfs.fat -F32 /dev/sdb1
+	> sudo dd bs=4M if=<Path-To-ISO> of=/dev/sdX conv=fdatasync status=progress
+		Example:
+		sudo dd bs=4M if=/home/shared/Microsoft\ Windows\ 10\ Pro\ x64BiT.iso of=/dev/sdb conv=fdatasync status=progress
+	
+		bs: read and write bytes
+		if: reads the indicated file as origin
+		of: writes the indicated file as destination
+		conv=fdatasync: assures the data will be written in destination before the operation ends.
+		status=progress: will show progress in real time, otherwise dd doesn’t show progress.

@@ -1,0 +1,8 @@
+
+-e, --regexp=PATTERNS     use PATTERNS for matching
+
+
+## Prove
+
+sudo grep -rne / | grep -e 'ANDROID_SDK_ROOT'
+sudo grep -rn . | grep -e 'for (let key' -C 3

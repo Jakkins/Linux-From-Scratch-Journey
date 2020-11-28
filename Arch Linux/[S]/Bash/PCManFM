@@ -1,0 +1,5 @@
+
+https://wiki.archlinux.org/index.php/PCManFM
+> Set the terminal emulator
+You can configure what terminal emulator PCManFM should use for Tools > Open Current Folder in Terminal under Edit > Preferences > Advanced.
+	i.e "bash -c 'termite'" 

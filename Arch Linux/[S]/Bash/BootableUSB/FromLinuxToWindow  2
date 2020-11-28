@@ -1,0 +1,9 @@
+
+https://linuxhint.com/create_windows_10_installer_usb_linux/
+
+	From Debian with UNebootin to Window
+	
+	> wget https://github.com/unetbootin/unetbootin/releases/download/675/unetbootin-linux64-675.bin (64 bit version)
+	> chmod +x unetbootin-linux64-675.bin
+	> xhost local:root
+	> sudo QT_X11_NO_MITSHM=1 /home/shared/unetbootin-linux64-675.bin

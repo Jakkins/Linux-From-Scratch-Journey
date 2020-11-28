@@ -1,0 +1,37 @@
+
+The os.system has many problems and subprocess is a much better way to executing unix command. The syntax is:
+
+	import subprocess
+	subprocess.call("command1")
+	subprocess.call(["command1", "arg1", "arg2"])
+
+	In this example, execute the date command:
+
+	import subprocess
+	subprocess.call("date")
+	
+	output: Sat Nov 10 00:59:42 IST 2012
+	
+	-----------------------------------------
+
+	You can pass the argument using the following syntax 
+		i.e run ls -l /etc/resolv.conf 
+	command:
+
+	import subprocess
+	subprocess.call(["ls", "-l", "/etc/resolv.conf"])
+
+	Sample outputs:
+
+	<-rw-r--r-- 1 root root 157 Nov  7 15:06 /etc/resolv.conf
+	
+	-----------------------------------------
+
+	To store output to the output variable, run:
+
+	import subprocess
+	p = subprocess.Popen("date", stdout=subprocess.PIPE, shell=True)
+	(output, err) = p.communicate()
+	print output
+
+	-----------------------------------------

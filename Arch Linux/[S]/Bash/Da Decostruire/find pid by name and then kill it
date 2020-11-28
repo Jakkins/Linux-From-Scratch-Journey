@@ -1,0 +1,9 @@
+
+###################################################################
+## chiude android-studio invece di tutte le app java in esecuzione
+###################################################################
+
+ps -eo pid,cmd | grep -Ev "^ {0,1}([0-9]*) grep.*" | grep -E 'java.*android-studio' | sed -re 's/ {0,1}([0-9]*) .*/\1/' | head -n1 | xargs kill -9
+
+ps -e 		//WOW
+cmd			//???

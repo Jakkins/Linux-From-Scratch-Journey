@@ -1,0 +1,2 @@
+
+	sudo find -executable -type f -size +1M

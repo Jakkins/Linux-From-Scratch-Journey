@@ -1,0 +1,20 @@
+
+	7z a secure.7z * -p{PASW}
+
+	# 7z        : name and path of 7-Zip executable
+	# a         : add to archive
+	# secure.7z : name of destination archive
+	# *         : add all files from current directory to destination archive
+	# -p{PASW}    : specify the password 
+	
+	Note: If the password contains spaces or special characters, then enclose it with single quotes
+		7z a secure.7z * -p'pa$$word @|'
+
+	per estrarre il comando normale
+
+--------------
+
+	> zip {nome} {source}
+	
+	Cartelle
+	> zip -r {nome} {source}

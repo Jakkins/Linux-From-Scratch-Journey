@@ -1,0 +1,7 @@
+
+	https://github.com/qtile/qtile/issues/685
+	
+	https://wiki.archlinux.org/index.php/Qtile#Startup
+	
+	http://docs.qtile.org/en/latest/manual/config/hooks.html#autostart
+		Let’s create a file ~/.config/qtile/autostart.sh

@@ -1,0 +1,194 @@
+###############################################
+## WARNING !!!
+###############################################
+- ATTENTO A CAMBIARE BRANCH CON FILE MODIFICATI NON COMMITTATI !!
+
+###############################################
+## https://www.youtube.com/watch?v=nhNq2kIvi9s
+###############################################
+
+SAFE COMMAND:
+	> git status
+
+
+###############################################
+## download / clone branch
+###############################################
+1. create new folder, delete .git if exist
+2. git init
+3. git remote add origin https://github.com/Jakkins/C_for_newbie.git
+4. git pull origin --force
+5. git pull origin master --force
+6. git checkout sam
+
+git clone --branch <branchname> <remote-repo-url>
+git clone -b <branchname> <remote-repo-url>
+	-b is just an alias for --branch
+
+--- --- --- --- ---
+
+	> git remote -v
+		list the remote repository
+
+	> git remote add origin https://github.com/Jakkins/ServerHTTPS.git
+		origin is a conventional name. You could name it as you want.
+	
+	> git push -u origin master
+		origin = https://github.com/Jakkins/ServerHTTPS
+	
+--- --- --- --- ---
+	
+	> git pull -u origin master
+
+--- --- --- --- ---
+
+	// delete branch locally
+	git branch -d localBranchName
+
+	// delete branch remotely
+	git push origin --delete remoteBranchName
+	
+--- --- --- --- ---
+
+IF I WANT TO CONTRIBUTE TO A PROJECT I HAVE TO DO A PULL REQUEST
+	1. fork
+		possiamo fare tutto quello che vogliamo con la versione "forkata"
+	2. > git clone URL
+	3. Modify
+	4. add -> commit -> remote -> push
+	NOW
+	5. Click on pull request on Github
+		There are guidelines to pull requests
+		
+###############################################
+CHANGE THINGS
+###############################################
+
+	Oppure cancelli la cartella git... xD
+
+	> git help remote
+
+########################################################################
+> git pull origin master
+ERROR:	fatal: refusing to merge unrelated histories
+########################################################################
+> git pull --allow-unrelated-histories 
+(OK FUNZIONA VS Code ti fa vedere pure i cambiamenti)
+
+POI modifica -> add -> commit -> push
+	
+########################################################################
+Delete commits history
+########################################################################
+1. delete .git folder
+2.
+	> git init
+	> git status
+	> git add .
+	> git commit -m "Delete History"
+	> git remote add origin https://github.com/Jakkins/ServerHTTPS.git
+	> git push origin master --force
+
+########################################################################
+How To Pull
+########################################################################
+1. delete or move files that you are downloading with pull
+
+########################################################################
+Create repo from local
+########################################################################
+> git init
+> hub create repo
+
+########################################################################
+!!! CANCELLA TUTTO E TORNA AL COMMIT INDICATO
+########################################################################
+> git log		//per vedere tutti i commit
+> git reset --hard 0d1d7fc32
+
+########################################################################
+Detached HEAD
+########################################################################
+(https://learnwebtutorials.com/you-are-in-detached-head-state-how-fix)
+To recover, create a branch named “temp” and switch to it…
+
+> git branch temp
+> git checkout temp
+> git status
+
+By switching to temp, you are attaching HEAD to the temp branch.
+You want to be back on master, so switch to master …
+
+> git checkout master
+
+6.  And then delete the temp branch
+
+git branch -d temp
+
+########################################################################
+Fetch command - https://www.youtube.com/watch?v=q6rYglziOjM
+
+Dealing with master(non-fast-forward)
+
+	--- ALLELUJA ---
+########################################################################
+
+0. git show-ref 
+1. git fetch origin -v
+	> git show-ref  (again to see what's changed)
+2. git diff master origin/master (probabily it's remote)
+3. git merge {YOUR_BRANCH_NAME} origin/master 
+	> git merge master origin/master 
+4. git status
+	
+--- --- ---
+> git rebase --continue
+> git rebase --skip
+> git rebase --abort	
+	
+########################################################################
+Continuo a non capirci niente ahaha
+########################################################################
+
+(the following examples use the local working copy as the implicit first commit):
+
+$ git diff remote/origin   
+	This shows the incoming remote additions as deletions; any additions in your local repository are shown as additions.
+
+$ git diff ...remote/origin
+	Shows incoming remote additions as additions; the triple-dot excludes changes committed to your local repository.
+
+$ git diff ..remote/origin
+	Shows incoming remote additions as additions; the double-dot includes changes committed to your local repository as deletions (since they are not yet pushed).
+
+########################################################################
+1. Merge master on new branch
+########################################################################	
+
+		> git checkout master
+		> git branch -D branch_x (deletes all beanch)
+		> git fetch origin -v
+		> git branch new_branch
+		> git checkout new_branch
+		> git merge origin/master
+		
+		Ora puoi modificare tutto quello che ti pare.
+		Verifica di essere nel branch giusto.
+			> git branch
+				or
+			> git status
+	
+########################################################################
+2. Copy files to one branch to another	[WARNING]
+########################################################################
+
+	> git checkout origin/sam README.md	[BROKEN, DELETE WITHOUT WARNING]
+	
+	WORKS ON FILES AND FOLDER
+	
+	UNDO (dopo il commit non funziona... Ovviamente)
+		> git checkout HEAD README.md
+	
+	
+	
+	

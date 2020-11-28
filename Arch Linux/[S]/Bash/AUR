@@ -1,0 +1,12 @@
+
+	git clone https://aur.archlinux.org/package_name.git
+	
+	cd package_name
+	
+	less PKGBUILD
+	
+	makepkg    // build
+	
+	makepkg -s
+
+	makepkg -i // install after build

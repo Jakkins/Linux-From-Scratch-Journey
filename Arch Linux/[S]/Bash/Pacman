@@ -1,0 +1,6 @@
+
+sudo pacman -Fy lsusb
+
+To search something:
+	pacman -Qo /bin/intltoolize
+	pacman -Qo /bin/perl

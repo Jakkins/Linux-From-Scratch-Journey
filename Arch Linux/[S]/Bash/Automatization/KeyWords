@@ -1,0 +1,17 @@
+	
+	- cron
+	- rc.local is a legacy from the System V init
+	- systemd
+	- service unit files which is used by systemd
+	- GNOME startup
+	- KDE startup
+	- Bash Session
+		1. /etc/profile
+		2. ~/.bash_profile
+		3. ~/.bash_login
+		4. ~/.profile
+		5. /etc/bashrc
+		   /etc/bash.bashrc
+		   ~/.bashrc. 
+	- /etc/init.d
+	- rc.d

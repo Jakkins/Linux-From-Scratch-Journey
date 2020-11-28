@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# rsync -av --progress ostechnix/ backup/ --exclude dir2
+rsync -av --progress /mnt/lfs /home/sam/lfs.backup --exclude sources

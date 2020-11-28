@@ -1,0 +1,115 @@
+
+
+	modify
+	add
+	commit
+	repeat
+	
+	> git checkout hashOfACommit
+		> git checkout 13e8d228f71a2d1587a78ced75b3f4f128009498
+
+################################################
+##  https://www.youtube.com/watch?v=USjZcfj8yxE
+################################################
+
+	> git --version
+	> mkdir test;cd test/ 
+	> git init & git status
+	
+	> git log
+	
+--- --- --- ---
+	ADD
+	> touch index.html; git status
+	> git add index.html
+	
+	> git add .
+		add everything
+	
+	> git add -p
+	
+--- --- --- ---
+	COMMIT
+	> git commit -m "Commit message"
+	
+--- --- --- ---
+	
+	> git config --global user.email "Jakkins@hotmail.it"
+	> git config --global user.name "Jakkins"
+
+--- --- --- ---
+	
+	In case you want to change just the very last commit, Git offers a very easy way to do this:
+	
+	## Funziona ##
+	
+	> git commit --amend --author="Jakkins <Jakkins@hotmail.it>" -m "msg2"
+	
+##################################
+##
+##  BRANCH
+##
+##	Great way to try new thing
+##
+##################################
+	
+	> git branch
+		list all branches
+	> git branch <new-branch-name>
+		new branch
+	> git checkout <new-branch-name>
+		to change branch
+		
+##################################
+##
+##  MERGE
+##
+##	To move a branch into master
+##
+##################################
+
+	> git merge <branch-name>
+	
+	Nello specifico.
+	Per unire un branch al master.
+		1. Cambia branch e mettiti nel master
+		> git checkout master
+		> git branch
+			controlla di essere nel master
+		> git merge <altro-branch>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	

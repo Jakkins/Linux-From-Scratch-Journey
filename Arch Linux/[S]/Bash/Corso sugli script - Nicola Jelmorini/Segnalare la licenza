@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# la prima riga e' speciale
+
+##############################################################################
+# autore : Nome cognome
+# anno   : Anno di rilascio? Anche data
+# licenza: questo script è software libero: puoi ridistribuirlo e/o modificarlo
+#          rispettando i termini della licenza GNU General Public License
+#          stabiliti dalla Free Software Foundation, versione 3.
+#          Questo script è distribuito nella speranza che possa essere utile,
+#          ma SENZA ALCUNA GARANZIA.
+#          Consulta la licenza GNU General Public License per avere ulteriori
+#          dettagli. 
+#          Dovresti aver ricevuto una copia della GNU General Public License
+#          insieme a questo programma. 
+#          Se non è così, visita <http://www.gnu.org/licenses/>.
+##############################################################################
+
+

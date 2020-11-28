@@ -1,0 +1,5 @@
+
+	df -H --output=source,size,avail,used
+	
+	df -H -t ext4 --output=source,avail
+		or --type=ext4

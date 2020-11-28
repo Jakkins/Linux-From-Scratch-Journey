@@ -1,0 +1,23 @@
+
+	> stat folder
+		0755/drwxr-xr-x
+			la 'd' sta per 'directory'
+	> stat file
+		0700/-rwx------
+			il '-' sta per 'file qualsiasi'
+			
+	(0755/drwxr-xr-x) Uid: ( 1000/     sam)   Gid: (  985/   users)
+		drwx 	-> permessi dell'utente sam
+		r-x		-> permessi del gruppo users
+		r-x		-> permessi di tutti quelli che hanno accesso al PC
+		
+		
+		
+		
+		
+		
+> chown {user} {file}
+> chmod -x {file}
+
+(0600/-rw-------)
+(0200/--w-------)

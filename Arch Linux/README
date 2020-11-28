@@ -1,0 +1,4 @@
+	
+	archloginshell -> bash_profile (and you could bash_profile -> startx)
+
+	startx -> xinit -> initrc.sh -> qtile

@@ -1,0 +1,3 @@
+tmp=$(ping -R 1.1.1.1 -c 1 | grep RR -A 1 | tail -1)
+# many options are available in bash to remove unwanted characters from string data, such as parameter expansion, sed, awk, xargs, etc.
+echo ${tmp}
