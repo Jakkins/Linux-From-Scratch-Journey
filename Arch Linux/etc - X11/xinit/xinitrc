@@ -38,9 +38,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-qtile & pcmanfm -d
-# i3 & termite 
-# qtile & xterm
+pcmanfm -d & qtile &
 
 
 

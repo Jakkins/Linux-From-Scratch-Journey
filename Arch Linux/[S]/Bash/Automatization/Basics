@@ -21,6 +21,7 @@ https://unix.stackexchange.com/questions/56957/how-to-start-an-application-autom
 ## DIGITAL OCEAN
 ##################################################################
 https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units
+
 ##################################################################
 ## ARCH WIKI
 ##################################################################
@@ -31,15 +32,12 @@ https://wiki.archlinux.org/index.php/Autostarting
 		~/.xinitrc if it is present in a user's home directory, startx and xinit execute it. Otherwise startx will run the default /etc/X11/xinit/xinitrc 
     xprofile if you are using a display manager
     ---
-    
+
 ##################################################################
-## 
-##################################################################
-The preferred way to add an init script to startup varies by distros
-##################################################################
-## 
+## CRON
 ##################################################################
 if you need to do it approximately every 10 seconds (i.e. not 10 seconds sharp), you might want to use cron instead. 
+
 ##################################################################
 ## SYSTEMD
 ##################################################################

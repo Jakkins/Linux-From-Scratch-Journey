@@ -12,7 +12,7 @@ The os.system has many problems and subprocess is a much better way to executing
 	
 	output: Sat Nov 10 00:59:42 IST 2012
 	
-	-----------------------------------------
+-----------------------------------------
 
 	You can pass the argument using the following syntax 
 		i.e run ls -l /etc/resolv.conf 
@@ -25,7 +25,7 @@ The os.system has many problems and subprocess is a much better way to executing
 
 	<-rw-r--r-- 1 root root 157 Nov  7 15:06 /etc/resolv.conf
 	
-	-----------------------------------------
+-----------------------------------------
 
 	To store output to the output variable, run:
 
@@ -34,4 +34,4 @@ The os.system has many problems and subprocess is a much better way to executing
 	(output, err) = p.communicate()
 	print output
 
-	-----------------------------------------
+-----------------------------------------

@@ -1,0 +1,3 @@
+du path -h -d 1
+
+sudo du / -h -d 1
