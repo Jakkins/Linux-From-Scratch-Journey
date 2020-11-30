@@ -2,7 +2,7 @@
 1. https://wiki.archlinux.org/index.php/Installation_guide
 2. https://wiki.archlinux.org/index.php/General_recommendations
 
-### Date, Time, System Clock
+## Date, Time, System Clock
 ```
 $ timedatectl
     > status
@@ -12,10 +12,11 @@ $ timedatectl
 $ sudo hwclock --show
 ```
 
-## Useful links
+## Useful
 
-[Where PATH is setted?](https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu)
-=======
+- [Where PATH is setted?](https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu)
+- fn+f1
+
 ## Pacman
 
 ```bash
