@@ -17,6 +17,7 @@ $ sudo hwclock --show
 - [Where PATH is setted?](https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu)
 - fn+f1
 - [NTFS on Arch](https://wiki.archlinux.org/index.php/NTFS-3G)
+- libmtp = MTP = Media Transfer Protocol (From Arch to Android)
 
 ## Pacman
 
