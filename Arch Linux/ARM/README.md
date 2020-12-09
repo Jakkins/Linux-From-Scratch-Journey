@@ -1,4 +1,4 @@
-<h1 align="center">ArchLinux</h1>
+<h1 align="center">ArchLinux ARM</h1>
 
 MongoDB on ARMv7h architecture:
 - you will need to use a cross compiled, or an already compiled version of mongodb
@@ -65,6 +65,12 @@ https://archlinuxarm.org/about/downloads
 - install kernel LTS
 - change graphics and personalize PS1
     - [Xterm 256 color chart](https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg)
+- Java
+    ```bash
+    sudo pacman -S jdk-openjdk
+    # For the complete set of Java binaries to be available in your PATH, you need to re-login or source /etc/profile.d/jre
+    # Please note that this package does not support forcing JAVA_HOME as former package java-common did
+    ```
 
 [JUST OPTIONAL]
 

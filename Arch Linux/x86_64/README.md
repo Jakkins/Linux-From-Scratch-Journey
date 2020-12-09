@@ -1,3 +1,4 @@
+<h1 align="center">ArchLinux 64 bit</h1>
 
 1. https://wiki.archlinux.org/index.php/Installation_guide
 2. https://wiki.archlinux.org/index.php/General_recommendations
