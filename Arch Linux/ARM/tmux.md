@@ -9,6 +9,7 @@
 ## Some sources
 
 - http://tmuxcheatsheet.com/
+- [another tmux cheatsheet](https://gist.github.com/andreyvit/2921703)
 - https://linuxhandbook.com/tmux/
 - https://www.youtube.com/watch?v=Yl7NFenTgIo
 - [THIS OMG THIS](https://askubuntu.com/questions/850055/ctrl-b-c-n-w-etc-not-working-in-tmux-console)
