@@ -15,6 +15,7 @@ $ sudo hwclock --show
 
 ## Useful
 
+- [Manage screens](https://github.com/Jakkins/Linux/blob/master/Arch%20Linux/x86_64/Manage%20Screens.md)
 - [Where PATH is setted?](https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu)
 - fn+f1
 - [NTFS on Arch](https://wiki.archlinux.org/index.php/NTFS-3G)
