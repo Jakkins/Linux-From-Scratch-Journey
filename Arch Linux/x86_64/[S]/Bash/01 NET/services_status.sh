@@ -2,10 +2,9 @@
 # for wifi should be inactive/disabled
 systemctl status NetworkManager &
 echo '###################################################'
-echo 'NetworkManager for wifi should be inactive/disabled'
+echo 'NetworkManager for wifi should be disabled/inactive'
 echo '###################################################'
 
-#  
 systemctl | grep net  
 
 read
