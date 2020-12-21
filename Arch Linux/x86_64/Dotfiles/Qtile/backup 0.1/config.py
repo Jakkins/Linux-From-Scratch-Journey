@@ -25,6 +25,7 @@
 # SOFTWARE.
 
 # ----------------------------------
+# 0 - Monitors
 # 1 - Keys
 # 2 - Groups / Workspaces
 # 3 - Layouts
@@ -45,14 +46,18 @@ from Xlib import display
 import os
 import subprocess
 
-# =================================
-# GENERAL
-# =================================
 mod = "mod4"
 
 # =================================
-# Detect Multy Monitor
+# Functions
+
+# mouse-callbacks
+def func_to_open_menu(qtile):
+    qtile.cmd_spawn('dmenu_run')
+
+
 # =================================
+# 0 - Monitors
 # https://github.com/ekollof/qtile/blob/master/config.py 
 d = display.Display()
 s = d.screen()
@@ -66,19 +71,12 @@ for output in res['outputs']:
     if mon['num_preferred']:
         num_monitors += 1
 
-# =================================
 # Set Monitors if num_monitors > 1
-# =================================
-
-# xrandr --output eDP1 --auto --output eDP1 --auto --left-of eDP1
 if num_monitors > 1:
     os.system('xrandr --output eDP1 --auto --output DP1 --auto --left-of eDP1')
-    # os.system('xrandr --output eDP1 --auto --output DP1 --auto --right-of eDP1')
 	
 # =================================
-# Keyboard Settings
-# =================================
-
+# 1 - Keyboard Settings
 keys = [
     # Switch between windows in current stack pane
     Key([mod], "k", lazy.layout.down()),
@@ -113,10 +111,23 @@ keys = [
 ]
 
 # =================================
-# Workspaces
-# =================================
-
-groups = [Group(i) for i in "123456789"] # workspaces in basso
+# 2 - Workspaces ( http://docs.qtile.org/en/latest/manual/config/groups.html )
+# groups = [Group(i) for i in "123456789pcfm"]
+groups = [
+    Group("1"),
+    Group("2"),
+    Group("3"),
+    Group("4"),
+    Group("5"),
+    Group("6"),
+    Group("7"),
+    Group("8"),
+    Group("9"),
+    Group("p", matches=None, exclusive=False, spawn=['pcmanfm'], layout='max'),
+    Group("c", matches=None, exclusive=False, spawn=['code'], layout='max'),
+    Group("f", matches=None, exclusive=False, spawn=['firefox'], layout='max', layouts=None, persist=True, init=True, layout_opts=None, screen_affinity=None, position=9223372036854775807, label=None),
+    Group("m", matches=None, exclusive=False, spawn=['firefox www.youtube.com'], layout='max'),
+]
 
 for i in groups:
     keys.extend([
@@ -129,51 +140,74 @@ for i in groups:
         # # mod1 + shift + letter of group = move focused window to group
         # Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
     ])
-    
+
+# =================================
+# 3 - Layouts ( http://docs.qtile.org/en/latest/manual/ref/layouts.html )
 layouts = [
     layout.Max(),
     layout.Stack(num_stacks=3),
-    # layout.Bsp(),
-    # layout.Columns(),
-    layout.Matrix(), # YES
-    # layout.MonadTall(),
-    # layout.MonadWide(),
-    # layout.RatioTile(),
-    # layout.Tile(),
-    # layout.TreeTab(),
-    # layout.VerticalTile(),
-    # layout.Zoomy(),
-    # layout.Floating(border_focus='ffffff', border_width=2, margin=4, border_normal="1D2330")
+    layout.Matrix(),
+    layout.TreeTab(),
 ]
 
-# mi sta cambiando il font del testo nella barra
+'''
+widget_defaults settings:
+- background: e.g. background='002b36'
+- foreground
+- font
+    - sans
+    - Victor Mono Semibold
+    - IBM Plex Sans Medium
+    - feather
+- fontsize: number
+- markup
+- padding: number
+'''
+
 widget_defaults = dict(
-    font='sans',
-    fontsize=13,
-    padding=3,
+    background='002b36',
+    foreground='ffffba',
+    font="Monospace",
+    fontsize=14,
+    markup=False, # non riesco a capire che cambi
+    padding=3, 
 )
+
+
 extension_defaults = widget_defaults.copy()
 
 # =================================
 # Screen Settings
-# =================================
 screens = [
     Screen(
-        bottom=bar.Bar(
+        bottom = bar.Bar(
             [
-                widget.GroupBox(),
-				widget.Prompt(),
-				widget.Systray(),
-				widget.Clock(format='%Y/%m/%d %A %I:%M %p'),
+                widget.Image(
+                    filename="~/0ROOT/glider.png",
+                    mouse_callbacks={'Button1': func_to_open_menu}
+                ),
+                widget.GroupBox(**widget_defaults),
+				widget.Prompt(**widget_defaults),
+				widget.Systray(**widget_defaults),
+				widget.Clock(**widget_defaults, format='%Y/%m/%d %A %I:%M %p'),
+                widget.Battery(**widget_defaults, battery=0),
+                widget.Memory(**widget_defaults),
+                widget.Net(
+                    **widget_defaults,
+                    interface='wlp3s0',
+                    format='{down} ud {up}',
+                ),
             ],
             24,
         ),
-        wallpaper="~/Desktop/Wallpapers/RoadToShambala.jpg",
+        wallpaper="~/0ROOT/RoadToShambala.jpg",
 		wallpaper_mode="fill",
-		width=1336,
-		height=768,
     ),
 ]
+
+'''
+		width=1336,
+		height=768,
 
 if num_monitors > 1:
 	screens.append(
@@ -186,17 +220,13 @@ if num_monitors > 1:
 					widget.Clock(format='%Y/%m/%d %A %I:%M %p'),
 				],
 				40,
-			),
-			wallpaper="~/Desktop/Wallpapers/RoadToShambala.jpg",
-			wallpaper_mode="fill",
+			)
 		)
     )
-
+'''
 
 # =================================
 # Floating
-# =================================
-
 # Drag floating layouts.
 mouse = [
     Drag([mod], "Button1", lazy.window.set_position_floating(),
@@ -232,30 +262,15 @@ floating_layout = layout.Floating(float_rules=[
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 
-# XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
-# string besides java UI toolkits; you can see several discussions on the
-# mailing lists, GitHub issues, and other WM documentation that suggest setting
-# this string if your java app doesn't work correctly. We may as well just lie
-# and say that we're a working one by default.
-#
-# We choose LG3D to maximize irony: it is a 3D non-reparenting WM written in
-# java that happens to be on java's whitelist.
+# java UI toolkits don't work correctly if the wmname isn't set to a name that happens to
+# be on java's whitelist (LG3D is a 3D non-reparenting WM written in java).
 wmname = "LG3D"
-
-# import subprocess va messo qui ma preparati a vedere Qtile bloccato in varie maniere: schermo nero, solo desktop e mouse...
-# @hook.subscribe.startup
-
-#@hook.subscribe.startup_complete
-#@hook.subscribe.startup_once
-#def autostart():
-#	home = os.path.expanduser('~')
-#   subprocess.call([home + '/.config/qtile/autostart.sh'])
 
 @hook.subscribe.startup_complete
 def ciao():
+    os.system('xrandr --output DP1 --rotate left') # vertical screen
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.call([home])
-
+    subprocess.call([home]) # contiene il comando per aprire il file TODO
 
 
 
