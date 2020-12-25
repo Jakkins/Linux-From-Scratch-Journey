@@ -13,7 +13,7 @@
 **The compilation will take something near 15GB of disk space.**
 
 ```bash
-sudo make -j 3
+make -j 3
 sudo make modules_install
 sudo make install
 ```
