@@ -1,5 +1,14 @@
 <h1 align="center">ArchLinux 64 bit</h1>
 
+- [Autostart](#autostart)
+- [Date, Time, System Clock](#date-time-system-clock)
+- [Useful](#useful)
+- [Gtk](#gtk)
+	- [Path](#path)
+- [Pacman](#pacman)
+- [Sudo](#sudo)
+- [Bho, Idk maybe will be useful](#bho-idk-maybe-will-be-useful)
+
 1. https://wiki.archlinux.org/index.php/Installation_guide
 2. https://wiki.archlinux.org/index.php/General_recommendations
 
@@ -27,7 +36,7 @@ $ sudo hwclock --show
 
 ## Useful
 
-- [Manage screens](https://github.com/Jakkins/Linux/blob/master/Arch%20Linux/x86_64/Manage%20Screens.md)
+- [Manage screens](https://github.com/Jakkins/Linux/blob/master/Arch%20Linux/x86_64/Dotfiles/X11)
 - [Where PATH is setted?](https://stackoverflow.com/questions/37676849/where-is-path-variable-set-in-ubuntu)
 - fn+f1
 - [NTFS on Arch](https://wiki.archlinux.org/index.php/NTFS-3G)
@@ -36,6 +45,22 @@ $ sudo hwclock --show
 	```
 	./.Xdefaults is the older method of storing ./.Xresources
 	```
+
+## Gtk
+
+- lxappearance
+
+### Path
+
+```bash
+# for lxappearance
+~/.themes
+~/.config/gtk-2.0
+~/.config/gtk-3.0
+# Other
+/usr/share/gtk-2.0
+/usr/share/gtk-3.0
+```
 
 ## Pacman
 
