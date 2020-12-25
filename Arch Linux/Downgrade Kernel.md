@@ -9,3 +9,9 @@
 5. click on **download**
 6. do the same for the headers
 7. Verify download, check integrity
+
+```bash
+sudo make -j 3
+sudo make modules_install
+sudo make install
+```
