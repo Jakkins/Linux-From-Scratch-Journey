@@ -10,6 +10,8 @@
 6. do the same for the headers
 7. Verify download, check integrity
 
+**The compilation will take something near 15GB of disk space.**
+
 ```bash
 sudo make -j 3
 sudo make modules_install
