@@ -1,6 +1,7 @@
 <h1 align="center">ArchLinux 64 bit</h1>
 
 - [Autostart](#autostart)
+- [Questions](#questions)
 - [Date, Time, System Clock](#date-time-system-clock)
 - [Useful](#useful)
 - [Gtk](#gtk)
@@ -23,6 +24,11 @@ startx
 	-> initrc (/etc/X11/xinit)
 		-> 10-monitor.conf
 		-> pcmanfm -d & qtile
+
+## Questions
+
+GRUB or GRUB2?
+GTK or Qt or both or none?
 
 ## Date, Time, System Clock
 ```
