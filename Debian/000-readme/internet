@@ -1,0 +1,176 @@
+=========================================================================
+=== NON SO COSA SIA SUCCESSO
+=========================================================================
+
+ho disattivato i driver con
+	sudo nano /etc/modprobe.d/blacklist.conf
+	blacklist rtl8723be
+ho installato i driver presi da github
+	sudo apt-get install gcc-6 git build-essential lshw
+	git clone https://github.com/jeremyb31/rtl8192eu-linux-driver.git
+	cd rtl8192eu-linux-driver
+	sudo make
+	sudo make install
+ho rimosso i driver bloccati nella blacklist ed ha funzionato
+
+=========================================================================
+=== SERVIZI ATTIVI NEL MOMENTO IN CUI STA FUNZIONANDO
+=========================================================================
+
+	systemctl list-unit-files --state enabled
+
+accounts-daemon.service                    enabled
+anacron.service                            enabled
+apparmor.service                           enabled
+autovt@.service                            enabled
+avahi-daemon.service                       enabled
+bluetooth.service                          enabled
+console-setup.service                      enabled
+cron.service                               enabled
+cups-browsed.service                       enabled
+cups.service                               enabled
+dbus-fi.w1.wpa_supplicant1.service         enabled
+dbus-org.bluez.service                     enabled
+dbus-org.freedesktop.Avahi.service         enabled
+dbus-org.freedesktop.ModemManager1.service enabled
+dbus-org.freedesktop.network1.service      enabled
+dbus-org.freedesktop.nm-dispatcher.service enabled
+dbus-org.freedesktop.timesync1.service     enabled
+dhcpcd.service                             enabled
+getty@.service                             enabled
+keyboard-setup.service                     enabled
+ModemManager.service                       enabled
+network-manager.service                    enabled
+networking.service                         enabled
+NetworkManager-dispatcher.service          enabled
+NetworkManager-wait-online.service         enabled
+NetworkManager.service                     enabled
+pppd-dns.service                           enabled
+rsyslog.service                            enabled
+switcheroo-control.service                 enabled
+syslog.service                             enabled
+systemd-networkd-wait-online.service       enabled
+systemd-networkd.service                   enabled
+systemd-timesyncd.service                  enabled
+udisks2.service                            enabled
+unattended-upgrades.service                enabled
+wpa_supplicant.service                     enabled
+
+=========================================================================
+=== BASIC
+=========================================================================
+wiki.debian.org/it/WiFi
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get dist-upgrade
+sudo apt autoremove
+
+===> INSTALL DRIVERS
+
+sudo apt-get install gcc-6 git build-essential lshw
+git clone https://github.com/jeremyb31/rtl8192eu-linux-driver.git
+cd rtl8192eu-linux-driver
+sudo make
+sudo make install
+
+=========================================================================
+====> NOT FREE DRIVER
+your source.list should look like this:
+	#realtek firmware
+	deb http://ftp.de.debian.org/debian stretch main non-free
+	deb-src  http://ftp.de.debian.org/debian stretch main non-free
+SO:
+	sudo nano /etc/apt/sources.list
+	sudo apt-get update
+	sudo apt-get install firmware-realtek
+=========================================================================
+=== CHECK DRIVER
+=========================================================================
+
+lspci -> RTL8723BE PCIe Wireless Network Adapter
+lsmod -> show currently loaded modules
+
+-> usando i 2 comandi sopra si ottengono le informazioni che servono a blacklistare il driver
+sudo nano /etc/modprobe.d/blacklist.conf
+	blacklist rtl8723be
+reboot
+
+lsusb
+lshw
+
+====> UNINSTALL DRIVER 
+(https://unix.stackexchange.com/questions/162455/remove-a-manually-installed-driver-wireless-usb)
+=========================================================================
+=========================================================================
+
+
+
+
+sudo wpa_cli 
+
+systemctl list-unit-files --state enabled
+
+> non capisco se NetworkManager deve essere attivo (leggere il manuale no Samu?)
+
+
+1. create /etc/wpa_supplicant.conf
+# senza spazi!!
+network={
+        ssid="Home&Life SuperWifi-B089"
+        psk="paaasww"
+}
+2. connect
+sudo wpa_supplicant -B -i wlp3s0 -c /etc/wpa_supplicant.conf 
+	-D so i driver usati
+		-D nl80211
+		-D wext
+
+bring interface up
+	sudo ip link set wlp3s0 up
+scan for networks
+	iwlist wlp3s0 s
+
+WIFI DO NOT SWITCH UP - wlp3s0: Failed to initialize driver interface
+	1. check driver
+		sudo lspci
+	2. check log
+		sudo journalctl -xae | grep wlp3s0
+			firmware: failed to load rtl_nic/rtl8168g-3.fw (-2)
+	3. debugga
+		dmesg
+
+Failed to enable unit: Unit file /etc/systemd/system/NetworkManager.service is masked.
+	-> sudo apt-get install network-manager
+
+---------------
+
+ADDRCONF(NETDEV_UP): wlp3s0: link is not ready
+	> systemctl list-unit-files --state enabled
+	> systemctl list-units | grep -iE 'net|dhcp|wicd|conn'?
+	> Disable NetworkManager and dhcpcd services.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

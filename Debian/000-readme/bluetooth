@@ -1,0 +1,2 @@
+sudo /usr/sbin/update-rc.d -f bluetooth disable
+sudo reboot
