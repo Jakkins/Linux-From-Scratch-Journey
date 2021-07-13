@@ -1,0 +1,41 @@
+
+
+/dev/sda1 -> EFI system per i file di boot
+/dev/sda2 -> Debian
+/dev/sda3 -> Microsoft
+
+==========================================
+The Microsoft Reserved Partition (MSR, quella da 16M) 
+is only used on the UEFI systems using the GPT disk structure.
+
+It is created to reserve a portion of the disk space 
+for possible subsequent usage by the Windows Operating System. 
+This partition does not contain any meaningful data 
+or any user data.
+
+However, it is assigned and ideally used for remapping damaged sectors.
+==========================================
+
+====> se hai installato prima Window poi Debian invece e' diverso
+
+# serve per poter creare un'entrata personalizzata di GRUB
+/etc/default/grub:
+	GRUB_DISABLE_OS_PROBER=true
+
+# ora bisogna trovare dove e' stato installato il boot di Window
+sudo blkid /dev/sda6 (quello con piu' GB)
+	/dev/sda5: UUID="38CAC7ACCAC7652A"
+
+# creare quindi un'entrata personalizzata
+sudo nano /etc/grub.d/40_custom 
+	menuentry "Windows 10" --class windows --class os {
+		insmod ntfs
+		search --no-floppy --set=root --fs-uuid 38CAC7ACCAC7652A
+		ntldr /bootmgr
+	}
+
+# update-grub
+$ update-grub
+
+
+Incrocia le dita

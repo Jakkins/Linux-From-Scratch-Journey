@@ -1,0 +1,123 @@
+=======================================================
+=== BASICS
+=======================================================
+---> UEFI != BIOS
+---> FARE SEMPRE sync DOPO AVER FATTO dd
+---> UNetbootin supports only Linux distros
+---> DD NON FUNZIONA CON WINDOWS
+---> For Window use NTFS 
+	fdisk hex code per NTFS:	
+		- 7 HPFS/NTFS/exFAT (for MBR)
+		- 11 (non sempre e' questo numero)
+=======================================================
+=== DD SOVRASCRIVE TUTTO - e' inutile formattare prima
+=======================================================
+W95 FAT32 (LBA)
+sudo mkfs.fat -F32 /dev/sdb1
+sudo dd bs=4M if=path/to/debian.iso of=/dev/sdb1 conv=fdatasync status=progress
+=======================================================
+=== FAT32 non supporta file maggiori di 4GB
+=======================================================
+c W95 FAT32 (LBA)
+sudo mkfs.fat -F32 /dev/sdb1
+mount iso
+mount usb
+copy file from iso to usb
+=======================================================
+=== ESPERIMENTO 4 - COPY, HOPE, NTFS
+=======================================================
+-> only with UEFI
+lsblk
+sudo umount /dev/sdb
+sudo fdisk /dev/sdb
+delete all
+n
+p
+1
+a
+t
+7 HPFS/NTFS/exFAT
+sudo mkfs.ntfs -f /dev/sdb1
+mount iso
+mount usb
+copy file from iso to usb
+=======================================================
+=== Sources
+=======================================================
+https://unix.stackexchange.com/questions/30322/how-do-i-partition-a-usb-drive-so-that-its-bootable-and-has-a-windows-compatibl
+https://dottheslash.wordpress.com/2011/11/29/deleting-all-partitions-on-a-usb-drive/
+https://www.guidetti-informatica.net/2020/12/come-creare-lunita-di-installazione-usb-di-windows-10-in-linux/
+========
+=== ORO
+=== dd windows 10 do not work
+========
+https://unix.stackexchange.com/questions/252625/how-can-i-use-fdisk-to-create-a-ntfs-partition-on-dev-sdx
+https://askubuntu.com/questions/59551/how-to-burn-a-windows-iso-to-a-usb-device
+https://askubuntu.com/questions/289559/how-can-i-create-a-windows-bootable-usb-stick-using-ubuntu
+https://unix.stackexchange.com/questions/312488/how-to-create-bootable-windows-10-image-in-debian
+=======================================================
+=== CREARE 2 PARTIZIONI SULLA STESSA USB
+----------------------------------------------------------
+--> Sembra che WINDOWS riconosca solo la partizione 1. <--
+--> CREA PRIMA WINDOWS                                 <--
+----------------------------------------------------------
+=======================================================
+sudo fdisk /dev/sdb
+> d (to delete one partition)
+> delete all partitions
+> n
+> p
+> 1
+(+6GB)
+> a
+> 1
+(toggles boot flag)
+> t
+> 7 (NTFS)
+(filesystem type)
+> w (write)
+
+Create the filesystems:
+
+mkfs.ntfs -f /dev/sdb1
+# mkfs.fat -F32 /dev/sdb2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
