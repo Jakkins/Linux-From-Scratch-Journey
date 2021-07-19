@@ -1,0 +1,34 @@
+
+MIX partition 3 and 2
+
+sudo fdisk /dev/sda
+d
+3
+d
+2
+n
+default
+default
+...
+w
+
+
+The reason df isn't showing any extra space is that it measures the free space inside the file system;
+it doesn't care about partition, logical volumes etc.
+So far, you have to resize:
+- partition    -> fdisk
+- file system  -> resize2fs
+
+sudo resize2fs /dev/sda2
+
+
+
+
+
+
+
+==========================================
+Altri comandi
+
+lsblk
+udisksctl

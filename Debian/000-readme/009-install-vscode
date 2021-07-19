@@ -1,0 +1,5 @@
+vai sulla pagina internet e scarica il .deb
+
+poi
+
+sudo dpkg -i package_file.deb
